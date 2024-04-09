@@ -1,0 +1,10 @@
+.mainpage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem ;
+}
+
+.mainpage-header__title {
+  font-size: 3rem;
+}

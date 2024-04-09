@@ -1,0 +1,34 @@
+.modal-content {
+  margin-right: 2%;
+  }
+  
+  .formheader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .close {
+    display: flex;
+    width: 10rem;
+    height: 2rem;
+    justify-content: flex-end ;
+
+  }
+  .formbuttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #submit-button{
+    width: 10rem;
+    
+  }
+  #close-button{
+    width: 10rem;
+    border: 1px solid #f8fafc;
+    color: #f8fafc;
+    background-color:#020817 ;
+  }
+  
+  

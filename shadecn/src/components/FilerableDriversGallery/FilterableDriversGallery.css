@@ -1,0 +1,23 @@
+.drivers {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+}
+
+@media (768px <= width <= 1024px) {
+    .drivers{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .drivers .news-piece{
+        margin: 2em;
+    }
+}
+@media (min-width: 1024px) {
+    .drivers{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .drivers .news-piece{
+        margin: 2em;
+    }
+}
