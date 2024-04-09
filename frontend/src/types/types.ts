@@ -4,6 +4,7 @@ export type driverType = {
     email: string,
     phoneNumber: string,
     pricePerKg: string,
+    city: string,
     available: boolean
 }
 
