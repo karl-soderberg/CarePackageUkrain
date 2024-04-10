@@ -7,7 +7,7 @@ import './App.css'
 import FilterableDriversGallery from "./components/FilerableDriversGallery/FilterableDriversGallery";
 import { SelectForm }  from "./components/FilterSelect/FilterSelect"
 import { useQuery } from 'react-query';
-import { driversType } from "./types/types";
+import { driverType } from "./types/types";
 import { fetchAllRequest } from "./utils/APIcalls";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     setIsModalOpen(false);
   }
 
-  const {data, isLoading, isError} = useQuery<driversType>('drivers', () => fetchAllRequest());
+  const {data, isLoading, isError} = useQuery<driverType[]>('drivers', () => fetchAllRequest());
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching data</div>;

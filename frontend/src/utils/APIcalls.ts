@@ -1,5 +1,5 @@
 export const fetchAllRequest = async () => {
-    const response = await fetch(`http://localhost:5164/api/Drivers`);
+    const response = await fetch(`http://localhost:5166/api/Drivers`);
 
     if (!response.ok) {
         const error = new Error('An error occurred while fetching the events');
