@@ -19,6 +19,7 @@ function DriverCard({driver}: Props) {
     <>
         <article className={`driver-card ${isAvailable ? 'available' : 'not-available'}`} >
             <h3>{driver.name}</h3>
+            <p>City: {driver.city}</p>
             <p>Phone Number: {driver.phoneNumber}</p>
             <p>Price Per Kg: {driver.pricePerKg}</p>
             <p>Available: {driver.available ? 'Yes' : 'No'}</p>
