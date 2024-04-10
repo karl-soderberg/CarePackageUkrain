@@ -8,16 +8,7 @@ import FilterableDriversGallery from "./components/FilerableDriversGallery/Filte
 import { SelectForm }  from "./components/FilterSelect/FilterSelect"
 import { useQuery } from 'react-query';
 import { driversType } from "./types/types";
-
-// const DRIVERS = [
-//   { id:"1", name: "Taras Shevchenko", email: "taras@gmail.com", phoneNumber: "0723456789", pricePerKg: "110kr", available: true },
-//   { id:"1", name: "Solomiya Kvitka", email: "natalia@gmail.com", phoneNumber: "0725256769", pricePerKg: "110kr", available: true },
-//   { id:"1", name: "Yuliya Sham", email: "yuliya@gmail.com", phoneNumber: "0704277301", pricePerKg: "100kr", available: true },
-//   { id:"1", name: "Lina Kostenko", email: "natalia@gmail.com", phoneNumber: "0725454389", pricePerKg: "110kr", available: true },
-//   { id:"1", name: "Andriy Shevchenko", email: "natalia@gmail.com", phoneNumber: "0725456789", pricePerKg: "110kr", available: true },
-//   { id:"1", name: "Olga Kobylyanska", email: "olga@gmail.com", phoneNumber: "0734567890", pricePerKg: "120kr", available: true },
-//   { id:"1", name: "Viktor Kovalenko", email: "viktor@gmail.com", phoneNumber: "0765432109", pricePerKg: "90kr", available: false },
-// ];
+import { fetchAllRequest } from "./utils/APIcalls";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
