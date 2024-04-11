@@ -22,18 +22,18 @@ namespace DriverApi.Controllers
 
         // GET: api/Drivers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers()
+        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers(string city = "")
         {
-            // if (city == "")
-            // {
-            //     return await _context.Driver.ToListAsync();
-            // }
-            // else
-            // {
-            //     return await _context.Driver.Where(driver => driver.City == city).ToListAsync();
-            // }
+            if (city == "")
+            {
+                return await _context.Driver.ToListAsync();
+            }
+            else
+            {
+                return await _context.Driver.Where(driver => driver.City == city).ToListAsync();
+            }
 
-            return await _context.Driver.ToListAsync();
+            //return await _context.Driver.ToListAsync();
         }
 
         // GET: api/Drivers/5
