@@ -14,33 +14,48 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import "./MyForm.css"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+import { toast } from "../ui/use-toast"
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+const FormSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
   }),
   email: z.string().min(2, {
     message: "Email must be at least 2 characters.",
   }),
   phoneNumber: z.string().min(2, {
+    message: "Email must be at least 2 characters.",
+  }),
+  pricePerKg: z.string().min(2, {
     message: "Phone Number must be at least 2 characters.",
   }),
+  city: z.string().min(2, {
+    message: "city must be at least 2 characters.",
+  }),
+  available: z.boolean().default(true),
 })
 
 export function MyForm( { isOpen, onClose}) {
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      name: "",
     },
   })
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data)
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    })
   }
 
   if (!isOpen) return null;
@@ -48,20 +63,20 @@ export function MyForm( { isOpen, onClose}) {
   return (
     <section className="modal">
       <article className="modal-content">
-      <header className="formheader">
+        <header className="formheader">
           <h2>Add New Driver</h2>
           <span className="close" onClick={onClose}>&times;</span> 
         </header>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form  onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
             <FormField
               control={form.control}
-              name="username"
+              name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="Write your name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,8 +108,64 @@ export function MyForm( { isOpen, onClose}) {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="pricePerKg"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Price per kg, SEK or UAH" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+              <FormLabel>Email</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select City" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="Stockholm">Stockholm</SelectItem>
+                  <SelectItem value="Uppsala">Uppsala</SelectItem>
+                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+              )}
+            />
+            <FormField
+                  control={form.control}
+                  name="available"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                      <div className="space-y-0.5">
+                        <FormLabel>Available</FormLabel>
+                      </div>
+                      <FormControl>
+                        <select
+                          value={field.value ? "true" : "false"}
+                          onChange={(e) => field.onChange(e.target.value === "true")}
+                        >
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </select>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
             <section className="formbuttons">
-              <Button id="close-button" onClick={onClose}>Close</Button> 
+              <Button className="close-button" onClick={onClose}>Close</Button> 
               <Button type="submit" id="submit-button">Submit</Button>
             </section>
           </form>

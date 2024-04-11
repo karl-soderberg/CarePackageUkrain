@@ -39,9 +39,7 @@ function App() {
   }
   );
   
-  
-  console.log('Selected city:', selectedCity);
-  console.log('Drivers:', drivers);
+
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching drivers</div>;
