@@ -10,7 +10,7 @@ function FilterableDriversGallery({drivers, selectedCity}) {
     const filteredDrivers = selectedCity ? drivers.filter(driver => driver.city === selectedCity) : drivers;
     return (
         <>
-            <h3 className='Our Drivers'>Our Drivers</h3>
+            <h3 className='drivers-gallery__title'>Our Drivers</h3>
             <section className='drivers'>
                 <DriversGallery drivers={filteredDrivers} />
             </section>

@@ -5,6 +5,12 @@
     grid-row-gap: 10px;
 }
 
+.drivers-gallery__title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
 @media (768px <= width <= 1024px) {
     .drivers{
         grid-template-columns: repeat(2, 1fr);
