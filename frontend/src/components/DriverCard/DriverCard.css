@@ -1,4 +1,23 @@
+.driver-card{
+  border: solid 1px gray;
+  border-radius: 10px;
+  color: rgb(200, 204, 233);
+
+}
+
+.driver-card__section{
+  margin: 10px;
+
+}
 
 .not-available {
-    background-color: red;
+    border: solid 1px rgb(113, 86, 86);
+    color: rgb(124, 126, 144);
+    
   }
+
+  .driver-available {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

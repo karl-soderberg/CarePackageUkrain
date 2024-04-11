@@ -1,6 +1,7 @@
 
 import { driverType } from '../../types/types'
-// import { Switch } from "@/components/ui/switch"
+import { Button } from '../ui/button';
+import { Switch } from "@/components/ui/switch"
 import './DriverCard.css';
 import { useState } from 'react';
 
@@ -13,20 +14,21 @@ function DriverCard({driver}: Props) {
 
     const toggleAvailability = () => {
     setIsAvailable(!isAvailable);
-    }
+    };
     
   return (
     <>
         <article className={`driver-card ${isAvailable ? 'available' : 'not-available'}`} >
-            <h3>{driver.name}</h3>
-            <p>City: {driver.city}</p>
-            <p>Phone Number: {driver.phoneNumber}</p>
-            <p>Price Per Kg: {driver.pricePerKg}</p>
-            <p>Available: {driver.available ? 'Yes' : 'No'}</p>
-            {/* <Switch /> */}
-            <button onClick={toggleAvailability} >
-                {isAvailable ? 'Set Not Available' : 'Set Available'}
-            </button>
+            <section className='driver-card__section'>
+                <h2>{driver.name}</h2>
+                <p>City: {driver.city}</p>
+                <p>Phone Number: {driver.phoneNumber}</p>
+                <p>Price Per Kg: {driver.pricePerKg}</p>
+                <section className='driver-available'>
+                    <p>Available: {isAvailable ? 'Yes' : 'No'}</p>
+                    <Switch checked={isAvailable} onClick={toggleAvailability}></Switch>
+                </section>
+            </section>
         </article>
     </>
     )
