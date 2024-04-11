@@ -178,7 +178,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                   />
 
               <section className="formbuttons">
-                <Button className="close-button" onClick={onClose}>Close</Button> 
+                <Button id="close-button" onClick={onClose}>Close</Button> 
                 <Button type="submit" id="submit-button">Submit</Button>
               </section>
             </form>

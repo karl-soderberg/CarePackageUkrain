@@ -43,7 +43,7 @@ function DriverCard({driver}) {
                     <p>Available: {isAvailable ? 'Yes' : 'No'}</p>
                     <Switch checked={isAvailable} onClick={toggleAvailability}></Switch>
                 </section>
-                <Button onClick={handleDelete}>Delete</Button>
+                <Button id='delete-button' onClick={handleDelete}>Delete driver</Button>
             </section>
         </article>
     </>

@@ -21,3 +21,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+#delete-button {
+  background-color: #020817;
+  border: solid 1px rgb(113, 86, 86);
+  color: rgb(171, 95, 95);
+}
