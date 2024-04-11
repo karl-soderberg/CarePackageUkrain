@@ -75,7 +75,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
       <article className="modal-content">
         <section className="formheader-wrapper">
           <header className="formheader">
-            <h2>Add New Driver</h2>
+            <h2>Register New Driver</h2>
             <span className="close" onClick={onClose}>&times;</span> 
           </header>
         </section>
