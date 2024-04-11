@@ -38,7 +38,7 @@ const FormSchema = z.object({
   available: z.boolean().default(true),
 })
 
-export function MyForm( { isOpen, onClose, selectedCity}) {
+export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -59,6 +59,7 @@ export function MyForm( { isOpen, onClose, selectedCity}) {
         title: 'Driver added successfully',
       });
       onClose();
+      refetch();
     } catch (error) {
       toast({
         title: 'Error',

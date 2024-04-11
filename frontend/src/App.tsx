@@ -26,7 +26,7 @@ function App() {
     setIsModalOpen(false);
   }
 
-  const { data: drivers = [], isLoading, isError } = useQuery(
+  const { data: drivers = [], isLoading, isError, refetch } = useQuery(
     ['drivers', selectedCity], () => { 
       if (selectedCity) {
         return fetchAllRequest(selectedCity);
@@ -54,7 +54,7 @@ function App() {
           <h1 className="mainpage-header__title">Welcome to my site</h1>
           <FormButton onClick={handleAddDriverClick} />
         </header>
-        <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity}/>  
+        <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity} refetch={refetch} />  
         <FilterSelect onChange={handleSelectedCity}/>
         <FilterableDriversGallery drivers = {drivers} selectedCity={selectedCity}/>
       </section>
