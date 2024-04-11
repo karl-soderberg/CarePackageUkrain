@@ -54,7 +54,7 @@ function App() {
           <h1 className="mainpage-header__title">Welcome to my site</h1>
           <FormButton onClick={handleAddDriverClick} />
         </header>
-        <MyForm isOpen={isModalOpen} onClose={handleCloseModal}/>  
+        <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity}/>  
         <FilterSelect onChange={handleSelectedCity}/>
         <FilterableDriversGallery drivers = {drivers} selectedCity={selectedCity}/>
       </section>

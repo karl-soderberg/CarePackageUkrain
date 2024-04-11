@@ -16,6 +16,8 @@ import { Input } from "@/components/ui/input"
 import "./MyForm.css"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { toast } from "../ui/use-toast"
+import { useMutation } from "react-query"
+import { PostDriver } from "@/utils/APIcalls"
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -36,7 +38,7 @@ const FormSchema = z.object({
   available: z.boolean().default(true),
 })
 
-export function MyForm( { isOpen, onClose}) {
+export function MyForm( { isOpen, onClose, selectedCity}) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -45,17 +47,24 @@ export function MyForm( { isOpen, onClose}) {
     },
   })
 
+  const mutation = useMutation(PostDriver)
+
   // 2. Define a submit handler.
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data)
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    })
+    try {
+      const formData = { ...data, city: selectedCity }; 
+      await mutation.mutateAsync(formData);
+      toast({
+        title: 'Driver added successfully',
+      });
+      onClose();
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: error.message || 'An error occurred',
+      });
+    }
   }
 
   if (!isOpen) return null;
