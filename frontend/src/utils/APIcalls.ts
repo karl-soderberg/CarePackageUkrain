@@ -15,7 +15,7 @@ export const fetchAllRequest = async (city:string) => {
 
 export const PostDriver = async (driverDto: driverDtoType) => {
     try {
-    const response = await fetch(`http://localhost:5028/api/drivers`, {
+    const response = await fetch(`http://localhost:5166/api/drivers`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
