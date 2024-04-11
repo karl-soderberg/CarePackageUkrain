@@ -1,12 +1,17 @@
 .mainpage-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 2rem ;
 }
 
 .mainpage-header__title {
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
+
+.mainpage-header__text {
+  max-width: 12rem;
+}
+
 
 

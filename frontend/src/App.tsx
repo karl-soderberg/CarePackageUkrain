@@ -51,8 +51,10 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" >
       <ModeToggle />
       <section className="content">
+        <h1 className="mainpage-header__title">Ukraine Care 🇺🇦</h1>
         <header className="mainpage-header">
-          <h1 className="mainpage-header__title">Ukrain Care</h1>
+        <p className="mainpage-header__text">Are you driving to Ukraine? <br />
+                              Ukraine Care is a platform that helps drivers connect with people who want to send help </p>
           <FormButton onClick={handleAddDriverClick} />
         </header>
         <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity} refetch={refetch} />  
