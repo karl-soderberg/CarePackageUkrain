@@ -82,8 +82,17 @@ namespace DriverApi.Controllers
         // POST: api/Drivers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Driver>> PostDriver(Driver driver)
+        public async Task<ActionResult<Driver>> PostDriver(DriverDTO driverDTO)
         {
+            var driver = new Driver {
+                Id = "Driver_" + Guid.NewGuid(),
+                Name = driverDTO.Name,
+                Email = driverDTO.Email,
+                PhoneNumber = driverDTO.PhoneNumber,
+                PricePerKg = driverDTO.PricePerKg,
+                City = driverDTO.City,
+                Available = driverDTO.Available,
+            };
             _context.Driver.Add(driver);
             try
             {
