@@ -53,14 +53,14 @@ namespace DriverApi.Controllers
         // PUT: api/Drivers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDriver(string id, Driver driver)
+        public async Task<IActionResult> PutDriver(string id, DriverDTO driverdto)
         {
-            if (id != driver.Id)
+            if (id != driverdto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(driver).State = EntityState.Modified;
+            _context.Entry(driverdto).State = EntityState.Modified;
 
             try
             {
