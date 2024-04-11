@@ -1,11 +1,18 @@
 .modal-content {
-  margin-right: 2%;
+  }
+
+  .formheader-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    width: 75%;
   }
   
   .formheader {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
   }
   
   .close {
@@ -13,6 +20,7 @@
     width: 10rem;
     height: 2rem;
     justify-content: flex-end ;
+    cursor: pointer;
 
   }
   .formbuttons {
@@ -31,4 +39,10 @@
     background-color:#020817 ;
   }
   
+  .form-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
   

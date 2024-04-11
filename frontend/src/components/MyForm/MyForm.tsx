@@ -73,113 +73,117 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
   return (
     <section className="modal">
       <article className="modal-content">
-        <header className="formheader">
-          <h2>Add New Driver</h2>
-          <span className="close" onClick={onClose}>&times;</span> 
-        </header>
-        <Form {...form}>
-          <form  onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
+        <section className="formheader-wrapper">
+          <header className="formheader">
+            <h2>Add New Driver</h2>
+            <span className="close" onClick={onClose}>&times;</span> 
+          </header>
+        </section>
+        <section className="form-content">
+          <Form {...form}>
+            <form  onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Write your name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="your_email@gmail.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="+46" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="pricePerKg"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Price per kg, SEK or UAH" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="city"
+                render={({ field }) => (
+                  <FormItem>
+                <FormLabel>Email</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <Input placeholder="Write your name" {...field} />
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select City" />
+                    </SelectTrigger>
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="your_email@gmail.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="phoneNumber"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="+46" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="pricePerKg"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Price per kg, SEK or UAH" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="city"
-              render={({ field }) => (
-                <FormItem>
-              <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select City" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="Stockholm">Stockholm</SelectItem>
-                  <SelectItem value="Uppsala">Uppsala</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-              )}
-            />
-            <FormField
-                  control={form.control}
-                  name="available"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
-                      <div className="space-y-0.5">
-                        <FormLabel>Available</FormLabel>
-                      </div>
-                      <FormControl>
-                        <select
-                          value={field.value ? "true" : "false"}
-                          onChange={(e) => field.onChange(e.target.value === "true")}
-                        >
-                          <option value="true">Yes</option>
-                          <option value="false">No</option>
-                        </select>
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
+                  <SelectContent>
+                    <SelectItem value="Stockholm">Stockholm</SelectItem>
+                    <SelectItem value="Uppsala">Uppsala</SelectItem>
+                    <SelectItem value="m@support.com">m@support.com</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+                )}
+              />
+              <FormField
+                    control={form.control}
+                    name="available"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                        <div className="space-y-0.5">
+                          <FormLabel>Available</FormLabel>
+                        </div>
+                        <FormControl>
+                          <select
+                            value={field.value ? "true" : "false"}
+                            onChange={(e) => field.onChange(e.target.value === "true")}
+                          >
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                          </select>
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
 
-            <section className="formbuttons">
-              <Button className="close-button" onClick={onClose}>Close</Button> 
-              <Button type="submit" id="submit-button">Submit</Button>
-            </section>
-          </form>
-        </Form>
+              <section className="formbuttons">
+                <Button className="close-button" onClick={onClose}>Close</Button> 
+                <Button type="submit" id="submit-button">Submit</Button>
+              </section>
+            </form>
+          </Form>
+        </section>
       </article>
     </section>
   )
