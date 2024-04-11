@@ -1,7 +1,21 @@
-#filter-section {
+.filter-section {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    background-color: red;
+    color: #141c2e;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
 }
+
+.filter-section__select {
+    width: 80%;
+    height: 2rem;
+    color: #141c2e;
+    background-color: #f8fafc;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+
