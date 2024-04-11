@@ -22,16 +22,14 @@ namespace DriverApi.Controllers
 
         // GET: api/Drivers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers(string? city = null)
+        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers(string? city = "")
         {
-            if (string.IsNullOrEmpty(city))
+            if (city == "")
             {
-                // If no city is provided, return all drivers
                 return await _context.Driver.ToListAsync();
             }
             else
             {
-                // Filter drivers by the provided city
                 return await _context.Driver.Where(driver => driver.City == city).ToListAsync();
             }
         }

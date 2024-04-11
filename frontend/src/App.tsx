@@ -16,7 +16,6 @@ function App() {
 
   const handleSelectedCity = (city: string) => {
     setSelectedCity(city) 
-    console.log(city)
   }
 
   const handleAddDriverClick = () => {
@@ -27,12 +26,17 @@ function App() {
     setIsModalOpen(false);
   }
 
-  const { data: drivers = [], refetch, isLoading, isError } = useQuery(
-    ['drivers', selectedCity],
-    () => fetchAllRequest(selectedCity),
-    {
-      enabled: !!selectedCity,
+  const { data: drivers = [], isLoading, isError } = useQuery(
+    ['drivers', selectedCity], () => { 
+      if (selectedCity) {
+        return fetchAllRequest(selectedCity);
+      } else {
+      return fetchAllRequest("");
     }
+  },
+  {
+    enabled: true, 
+  }
   );
   
   
