@@ -13,7 +13,7 @@ export function FilterSelect( { onChange }) {
     return (
       <section className="filter-section">
         <select className="filter-section__select" onChange={handleChange}>
-          <option value="">All cities</option>
+          <option value="">Select a city</option>
           <option value="Stockholm">Stockholm</option>
           <option value="Uppsala">Uppsala</option>
           <option value="Alaska">Alaska</option>
@@ -21,6 +21,6 @@ export function FilterSelect( { onChange }) {
       </section>
             
 
-    );
+    )
   
 }

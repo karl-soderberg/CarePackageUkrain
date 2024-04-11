@@ -9,12 +9,13 @@
 
 .filter-section__select {
     width: 80%;
-    height: 2rem;
-    color: #141c2e;
-    background-color: #f8fafc;
+    height: 3rem;
+    color: #f8fafc;
+    background-color: #020817;
     justify-content: center;
     text-align: center;
     margin: 1rem;
+    border: solid 2px #212f4d;
     border-radius: 5px;
 }
 
