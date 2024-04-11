@@ -15,8 +15,8 @@ function App() {
   const [selectedCity, setSelectedCity] = useState("");
 
   const handleSelectedCity = (city: string) => {
-    setSelectedCity(city)
-    
+    setSelectedCity(city) 
+    console.log(city)
   }
 
   const handleAddDriverClick = () => {
@@ -41,12 +41,6 @@ function App() {
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching drivers</div>;
-  // if (isLoading) return <div>Loading...</div>;
-  // if (isError) return <div>Error fetching data</div>;
-
-  // const driversByCity = selectedCity 
-  // ? data?.filter((driver) => driver.city === selectedCity)
-  // : data ;
 
 
   return (
