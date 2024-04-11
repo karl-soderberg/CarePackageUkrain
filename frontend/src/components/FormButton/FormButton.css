@@ -1,10 +1,15 @@
 #form-button {
-    width: 10rem;
-    height: 2.5rem;
+    width: 15rem;
+    height: 3rem;
     background-color: #020817;
     color: #f8fafc;
     border: solid 2px #212f4d;
     border-radius: 5px;
     margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+}
+
+.register-button {
+    display: flex;
+    justify-content: center;
 }

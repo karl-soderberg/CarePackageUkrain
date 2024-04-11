@@ -4,7 +4,9 @@ import './FormButton.css'
 
 function FormButton( {onClick} ) {
   return (
-    <Button id='form-button' onClick={onClick}>Register as a driver</Button>
+    <section className='register-button'>
+      <Button id='form-button' onClick={onClick}>Register as a driver</Button>
+    </section>
 
   )
 }
