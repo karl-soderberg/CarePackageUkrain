@@ -1,9 +1,10 @@
 import React from 'react'
 import { Button } from '../ui/button'
+import './FormButton.css'
 
 function FormButton( {onClick} ) {
   return (
-    <Button onClick={onClick}>Register here!</Button>
+    <Button id='form-button' onClick={onClick}>Register as a driver</Button>
 
   )
 }

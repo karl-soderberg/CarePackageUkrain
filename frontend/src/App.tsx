@@ -52,7 +52,7 @@ function App() {
       <ModeToggle />
       <section className="content">
         <header className="mainpage-header">
-          <h1 className="mainpage-header__title">Welcome to my site</h1>
+          <h1 className="mainpage-header__title">Ukrain Care</h1>
           <FormButton onClick={handleAddDriverClick} />
         </header>
         <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity} refetch={refetch} />  
