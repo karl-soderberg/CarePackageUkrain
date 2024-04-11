@@ -10,13 +10,17 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-type Props = {
-  onChange:
-}
+
 
 export function FilterSelect( { onChange }) {
+  const handleChange = (e) => {
+    const selectedValue = e.target.value;
+    console.log("Selected value:", selectedValue); // Log the selected value
+    onChange(selectedValue); // Call the onChange function with the selected value
+  };
+
   return (
-    <Select onChange={(e: React.FormEvent) => onChange(e.target.value)}>
+    <Select onChange={handleChange}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Filter By City" />
       </SelectTrigger>
@@ -29,5 +33,5 @@ export function FilterSelect( { onChange }) {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
+  );
 }

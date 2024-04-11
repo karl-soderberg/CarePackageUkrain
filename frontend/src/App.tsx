@@ -16,6 +16,7 @@ function App() {
 
   const handleSelectedCity = (city: string) => {
     setSelectedCity(city)
+    
   }
 
   const handleAddDriverClick = () => {
@@ -26,9 +27,22 @@ function App() {
     setIsModalOpen(false);
   }
 
-  const {data, isLoading, isError} = useQuery<driverType[]>('drivers', () => fetchAllRequest());
+  const { data: drivers = [], refetch, isLoading, isError } = useQuery(
+    ['drivers', selectedCity],
+    () => fetchAllRequest(selectedCity),
+    {
+      enabled: !!selectedCity,
+    }
+  );
+  
+  
+  console.log('Selected city:', selectedCity);
+  console.log('Drivers:', drivers);
+
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error fetching data</div>;
+  if (isError) return <div>Error fetching drivers</div>;
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return <div>Error fetching data</div>;
 
   // const driversByCity = selectedCity 
   // ? data?.filter((driver) => driver.city === selectedCity)
@@ -46,7 +60,7 @@ function App() {
         </header>
         <MyForm isOpen={isModalOpen} onClose={handleCloseModal}/>  
         <FilterSelect onChange={handleSelectedCity}/>
-        <FilterableDriversGallery drivers = {data} selectedCity={selectedCity}/>
+        <FilterableDriversGallery drivers = {drivers} selectedCity={selectedCity}/>
       </section>
     </ThemeProvider>
     </>
