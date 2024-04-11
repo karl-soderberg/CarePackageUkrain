@@ -6,7 +6,7 @@ type Props = {
     drivers: driverType [],
     selectedCity: string
 }
-function FilterableDriversGallery({drivers, selectedCity}: Props) {
+function FilterableDriversGallery({drivers, selectedCity}) {
     const filteredDrivers = selectedCity ? drivers.filter(driver => driver.city === selectedCity) : drivers;
     return (
         <>

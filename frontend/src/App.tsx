@@ -26,6 +26,7 @@ function App() {
     setIsModalOpen(false);
   }
 
+
   const { data: drivers = [], isLoading, isError, refetch } = useQuery(
     ['drivers', selectedCity], () => { 
       if (selectedCity) {
@@ -56,7 +57,7 @@ function App() {
         </header>
         <MyForm isOpen={isModalOpen} onClose={handleCloseModal} selectedCity={selectedCity} refetch={refetch} />  
         <FilterSelect onChange={handleSelectedCity}/>
-        <FilterableDriversGallery drivers = {drivers} selectedCity={selectedCity}/>
+        <FilterableDriversGallery drivers = {drivers} selectedCity={selectedCity} />
       </section>
     </ThemeProvider>
     </>

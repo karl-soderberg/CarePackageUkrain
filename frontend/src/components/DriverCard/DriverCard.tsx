@@ -4,17 +4,32 @@ import { Button } from '../ui/button';
 import { Switch } from "@/components/ui/switch"
 import './DriverCard.css';
 import { useState } from 'react';
+import { useMutation, useQueryClient } from 'react-query';
+import { deleteDriver } from '@/utils/APIcalls';
 
-type Props = {
-    driver: driverType
-}
 
-function DriverCard({driver}: Props) {
+function DriverCard({driver}) {
+    const queryClient = useQueryClient();
     const [isAvailable, setIsAvailable] = useState(driver.available);
+
+    const deleteDriverMutation = useMutation(deleteDriver, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(['drivers']);
+        },
+    });
+
 
     const toggleAvailability = () => {
     setIsAvailable(!isAvailable);
     };
+
+    const handleDelete = async () => {
+        try {
+          await deleteDriverMutation.mutateAsync(driver.id);
+        } catch (error) {
+          console.error('Error deleting driver:', error);
+        }
+      };
     
   return (
     <>
@@ -28,6 +43,7 @@ function DriverCard({driver}: Props) {
                     <p>Available: {isAvailable ? 'Yes' : 'No'}</p>
                     <Switch checked={isAvailable} onClick={toggleAvailability}></Switch>
                 </section>
+                <Button onClick={handleDelete}>Delete</Button>
             </section>
         </article>
     </>

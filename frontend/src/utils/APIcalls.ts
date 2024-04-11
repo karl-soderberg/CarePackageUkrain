@@ -33,3 +33,21 @@ export const PostDriver = async (driverDto: driverDtoType) => {
         throw new Error(`An error occurred while fetching the events: ${error.message}`);
     }
 }
+
+export const deleteDriver = async (id: string) => {
+    try {
+        const response = await fetch(`http://localhost:5166/api/drivers/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            const error = new Error('An error occurred while deleting the driver');
+            error.message = await response.json();
+            throw error;
+        }
+
+        return; // If the deletion is successful, no need to return any data
+    } catch (error) {
+        throw new Error(`An error occurred while deleting the driver: ${error.message}`);
+    }
+};
