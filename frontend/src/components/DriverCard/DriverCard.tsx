@@ -7,8 +7,11 @@ import { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { deleteDriver } from '@/utils/APIcalls';
 
+type Props = {
+    driver: driverType
+}
 
-function DriverCard({driver}) {
+function DriverCard({driver}: Props) {
     const queryClient = useQueryClient();
     const [isAvailable, setIsAvailable] = useState(driver.available);
 
