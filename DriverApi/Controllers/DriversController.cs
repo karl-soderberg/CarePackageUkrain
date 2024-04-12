@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DriverApi.Models;
@@ -20,7 +15,7 @@ namespace DriverApi.Controllers
             _context = context;
         }
 
-        // GET: api/Drivers
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers(string city = "")
         {
@@ -32,26 +27,19 @@ namespace DriverApi.Controllers
             {
                 return await _context.Driver.Where(driver => driver.City == city).ToListAsync();
             }
-
-            //return await _context.Driver.ToListAsync();
         }
 
-        // GET: api/Drivers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Driver>> GetDriverbyid(string id)
         {
             var driver = await _context.Driver.FindAsync(id);
-
             if (driver == null)
             {
                 return NotFound();
             }
-
             return driver;
         }
 
-        // PUT: api/Drivers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDriver(string id, Driver driver)
         {
@@ -81,8 +69,6 @@ namespace DriverApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Drivers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Driver>> PostDriver(DriverDTO driverDTO)
         {
@@ -115,7 +101,6 @@ namespace DriverApi.Controllers
             return CreatedAtAction("GetDriverbyid", new { id = driver.Id }, driver);
         }
 
-        // DELETE: api/Drivers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDriver(string id)
         {
