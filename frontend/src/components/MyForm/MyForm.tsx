@@ -38,6 +38,8 @@ const FormSchema = z.object({
   available: z.boolean().default(true),
 })
 
+
+
 export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -166,11 +168,12 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                         </div>
                         <FormControl>
                           <select
+                            className="form-select"
                             value={field.value ? "true" : "false"}
                             onChange={(e) => field.onChange(e.target.value === "true")}
                           >
-                            <option value="true">Yes</option>
-                            <option value="false">No</option>
+                            <option className="form-select__option" value="true">Yes</option>
+                            <option className="form-select__option" value="false">No</option>
                           </select>
                         </FormControl>
                       </FormItem>

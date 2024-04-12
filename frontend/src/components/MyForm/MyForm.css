@@ -60,3 +60,10 @@
     text-align: center;
   }
   
+  .form-select {
+    margin: 1rem;
+    color: #f8fafc;
+    background-color: #020817;
+    border: solid 2px #212f4d;
+    border-radius: 5px;
+  }
