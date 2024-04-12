@@ -113,7 +113,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                 name="phoneNumber"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Phone Number</FormLabel>
                     <FormControl>
                       <Input placeholder="+46" {...field} />
                     </FormControl>
@@ -126,7 +126,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                 name="pricePerKg"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Delivery price per kg</FormLabel>
                     <FormControl>
                       <Input placeholder="Price per kg, SEK or UAH" {...field} />
                     </FormControl>
@@ -139,7 +139,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                 name="city"
                 render={({ field }) => (
                   <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>City</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>

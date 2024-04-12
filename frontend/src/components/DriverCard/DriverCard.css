@@ -23,7 +23,16 @@
 }
 
 #delete-button {
-  background-color: #020817;
+  height: 2rem;
+  width: 12rem;
+  margin: 0 2rem;
   border: solid 1px rgb(113, 86, 86);
   color: rgb(171, 95, 95);
+  background-color: #020817;
+}
+
+.drivercard-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }

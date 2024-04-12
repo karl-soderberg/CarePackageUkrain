@@ -5,7 +5,7 @@ type Props = {
     drivers: driverType []
 }
 
-function DriversGallery({drivers}) {
+function DriversGallery({drivers}: Props) {
   return (
     <>
         {drivers.map((driver) =>

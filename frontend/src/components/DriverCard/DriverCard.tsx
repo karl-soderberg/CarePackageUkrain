@@ -46,7 +46,9 @@ function DriverCard({driver}: Props) {
                     <p>Available: {isAvailable ? 'Yes' : 'No'}</p>
                     <Switch checked={isAvailable} onClick={toggleAvailability}></Switch>
                 </section>
-                <Button id='delete-button' onClick={handleDelete}>Delete driver</Button>
+                <section className='drivercard-button'>
+                    <Button id='delete-button' onClick={handleDelete}>Delete driver</Button>
+                </section>
             </section>
         </article>
     </>
