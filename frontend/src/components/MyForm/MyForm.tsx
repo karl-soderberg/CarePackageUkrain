@@ -151,7 +151,7 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
                   <SelectContent>
                     <SelectItem value="Stockholm">Stockholm</SelectItem>
                     <SelectItem value="Uppsala">Uppsala</SelectItem>
-                    <SelectItem value="m@support.com">m@support.com</SelectItem>
+                    <SelectItem value="North Pole">North Pole</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
