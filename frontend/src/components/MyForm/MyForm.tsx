@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 import "./MyForm.css"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { toast } from "../ui/use-toast"
-import { useMutation } from "react-query"
+import { QueryObserverResult, RefetchOptions, RefetchQueryFilters, useMutation } from "react-query"
 import { PostDriver } from "@/utils/APIcalls"
 
 const FormSchema = z.object({
@@ -38,9 +38,15 @@ const FormSchema = z.object({
   available: z.boolean().default(true),
 })
 
+type Props = {
+  isOpen: boolean, 
+  onClose: () => void, 
+  selectedCity: string, 
+  refetch: <TPageData>(options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined) => Promise<QueryObserverResult<TPageData, unknown>>
+}
 
 
-export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
+export function MyForm( { isOpen, onClose, selectedCity, refetch}: Props) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -63,9 +69,10 @@ export function MyForm( { isOpen, onClose, selectedCity, refetch}) {
       onClose();
       refetch();
     } catch (error) {
+      const errorMessage = (error as Error).message || 'An error occurred'
       toast({
         title: 'Error',
-        description: error.message || 'An error occurred',
+        description: errorMessage,
       });
     }
   }

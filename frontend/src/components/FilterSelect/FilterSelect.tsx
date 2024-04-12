@@ -1,11 +1,14 @@
 import * as React from "react"
 import './FilterSelect.css'
 
+type Props = {
+  onChange: (selectedValue: string) => void
+}
 
 
 
-export function FilterSelect( { onChange }) {
-    const handleChange = (e) => {
+export function FilterSelect( { onChange }: Props) {
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const selectedValue = e.target.value;
       onChange(selectedValue);
     };

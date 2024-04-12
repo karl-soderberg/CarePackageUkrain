@@ -1,13 +1,12 @@
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { MyForm } from "@/components/MyForm/MyForm"
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import FormButton from "./components/FormButton/FormButton";
 import './App.css'
 import FilterableDriversGallery from "./components/FilerableDriversGallery/FilterableDriversGallery";
 import { FilterSelect }  from "./components/FilterSelect/FilterSelect"
 import { useQuery } from 'react-query';
-import { driverType } from "./types/types";
 import { fetchAllRequest } from "./utils/APIcalls";
 
 function App() {
